@@ -20,7 +20,8 @@ jobs:
       run: |
         logs=$(git log origin/main..HEAD --format='- %s by %an on %ci (%h)' --grep='^docs')
         if [ -n "$logs" ]; then
-          { head -n 5 Changelog.md; echo -e "\n## $(date +'%Y-%m-%d')\n$logs\n"; tail -n +6 Changelog.md; } > Changelog.md
+          { head -n 5 Changelog.md; echo -e "\n## $(date +'%Y-%m-%d')\n$logs\n"; tail -n +6 Changelog.md; } > Changelog.tmp
+          mv Changelog.tmp Changelog.md
           cat Changelog.md
         fi
         
