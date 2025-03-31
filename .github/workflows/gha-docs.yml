@@ -17,11 +17,12 @@ jobs:
 
     - name: Get docs commits
       id: docs_commits
+      env: 
+        FP: 'docs/Changes/Changelog.md'
       run: |
         logs=$(git log origin/main..HEAD --format='- %s by %an on %ci (%h)' --grep='^docs')
         if [ -n "$logs" ]; then
-          { head -n 5 Changelog.md; echo -e "\n## $(date +'%Y-%m-%d')\n$logs\n"; tail -n +6 Changelog.md; } > Changelog.tmp
-          mv Changelog.tmp Changelog.md
-          cat Changelog.md
+          { head -n 5 $FP; echo -e "\n## $(date +'%Y-%m-%d')\n$logs\n"; tail -n +6 $FP; } > $FP
+          cat $FP
         fi
         
