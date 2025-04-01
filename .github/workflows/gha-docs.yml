@@ -54,4 +54,4 @@ jobs:
         gh pr create --title "Update Changelog" \
           --body "This PR updates the Changelog.md file with the latest documentation changes from $(date +'%Y%m%d-%H%M%S')." \
           --base main --head ${{ env.BN }} \
-          --label "documentation, automated"
+          --label "documentation"
