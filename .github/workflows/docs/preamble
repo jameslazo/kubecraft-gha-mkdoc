@@ -1,0 +1,7 @@
+---
+title: Updates
+hide:
+  - toc
+---
+
+Below is a running list of commits with changes to the documentation. GitHub Actions repopulates this list on every commit to main, so all documentation-related commits should start with `doc`.
